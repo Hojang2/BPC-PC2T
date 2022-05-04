@@ -1,9 +1,9 @@
 
-public class Student {
+public abstract class Student {
 	protected String firstName;
 	protected String lastName;
 	protected int birthYear;
-	static protected  int ID = 0;
+	static protected  int ID = -1;
 	protected int studentID;
 	protected int[] grades;
 	

@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+
 public class Main {
 
 	public static int onlyInt(Scanner sc) 
@@ -43,7 +44,9 @@ public class Main {
 			option=onlyInt(sc);
 			switch(option)
 			{
-				case 1:	
+				case 1:
+					db.addStudent();
+					db.printStudents();
 					break;
 				case 2:
 					break;
