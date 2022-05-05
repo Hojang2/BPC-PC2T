@@ -66,6 +66,7 @@ public class Main {
 					db.sortStudents();
 					break;
 				case 7:
+					db.printStudyAverage();
 					break;
 				case 8:
 					break;

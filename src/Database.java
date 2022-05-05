@@ -259,4 +259,29 @@ public class Database {
 		System.out.println("Studenti kombinovaneho studia:");
 		Database.printStudents(studentsK);
 	}
+	public float getStudyAverage(ArrayList<Student> students) {
+		float sum = 0f;
+		for (Student s: students) {
+			sum += s.getAverage();
+		}
+		return sum / students.size();
+	}
+	public void printStudyAverage() {
+		ArrayList<Student> studentsT = new ArrayList<Student>();
+		ArrayList<Student> studentsH = new ArrayList<Student>();
+		ArrayList<Student> studentsK = new ArrayList<Student>();
+		
+		for (Student s: students) {
+			if (s instanceof StudentT) {
+				studentsT.add((StudentT) s);
+			} else if (s instanceof StudentK) {
+				studentsK.add((StudentK) s);
+			} else if (s instanceof StudentH) {
+				studentsH.add((StudentH) s);
+			}
+		}
+		System.out.println("Prumer studentu technickeho oboru:    " + getStudyAverage(studentsT));
+		System.out.println("Prumer studentu humanitniho oboru:    " + getStudyAverage(studentsH));
+		System.out.println("Prumer studentu kombinovaneho studia: " + getStudyAverage(studentsK));
+	}
 }
