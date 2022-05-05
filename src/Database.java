@@ -284,4 +284,28 @@ public class Database {
 		System.out.println("Prumer studentu humanitniho oboru:    " + getStudyAverage(studentsH));
 		System.out.println("Prumer studentu kombinovaneho studia: " + getStudyAverage(studentsK));
 	}
+	public void numberOfStudents() {
+		ArrayList<Student> studentsT = new ArrayList<Student>();
+		ArrayList<Student> studentsH = new ArrayList<Student>();
+		ArrayList<Student> studentsK = new ArrayList<Student>();
+		
+		for (Student s: students) {
+			if (s instanceof StudentT) {
+				studentsT.add((StudentT) s);
+			} else if (s instanceof StudentK) {
+				studentsK.add((StudentK) s);
+			} else if (s instanceof StudentH) {
+				studentsH.add((StudentH) s);
+			}
+		}
+		System.out.println("Pocet studentu technickeho oboru:    " + studentsT.size());
+		System.out.println("Pocet studentu humanitniho oboru:    " + studentsH.size());
+		System.out.println("Pocet studentu kombinovaneho studia: " + studentsK.size());
+	}
+	public void importDatabase(String path) {
+		
+	}
+	public void exportDatabase(String path) {
+		
+	}
 }
