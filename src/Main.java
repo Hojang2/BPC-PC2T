@@ -41,6 +41,7 @@ public class Main {
 			System.out.println("11 .. Ulozeni databaze do SQL");
 			System.out.println("12 .. Nacteni databaze ze SQL");
 			System.out.println("13 .. ukonceni aplikace");
+			System.out.print("Volba:");
 			option=onlyInt(sc);
 			switch(option)
 			{
@@ -49,8 +50,11 @@ public class Main {
 					db.printStudents();
 					break;
 				case 2:
+					db.addGrade();
 					break;
 				case 3:
+					db.printStudents();
+					db.deleteStudent();
 					break;
 				case 4:
 					break;

@@ -1,11 +1,12 @@
+import java.util.ArrayList;
 
 public abstract class Student {
 	protected String firstName;
 	protected String lastName;
 	protected int birthYear;
-	static protected  int ID = -1;
+	static protected  int ID = 0;
 	protected int studentID;
-	protected int[] grades;
+	private ArrayList<Integer> grades;
 	
 	public Student(String fn, String ln, int br) {
 		this.firstName = fn;
@@ -13,7 +14,18 @@ public abstract class Student {
 		this.birthYear = br;
 		this.studentID = ID;
 		ID += 1;
+		grades = new ArrayList<Integer>();
 		
+	}
+	public void setGrade(int grade) {
+		grades.add(grade);
+	}
+	public void printGrades() {
+		System.out.print("Znamky studenta " + studentID + ": ");
+		for (int grade: grades) {
+			System.out.print(grade + " ");
+		}
+		System.out.println();
 	}
 
 }
