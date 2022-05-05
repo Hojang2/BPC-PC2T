@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -305,13 +307,47 @@ public class Database {
 		System.out.println("Pocet studentu kombinovaneho studia: " + studentsK.size());
 	}
 	public void importDatabase(String path) {
+		try {
+		      File myObj = new File(path);
+		      ArrayList<String> data = new ArrayList<String>();
+		      Scanner myReader = new Scanner(myObj);
+		      while (myReader.hasNextLine()) {
+		        String line = myReader.nextLine();
+		        data.add(line);
+		      }
+		      myReader.close();
+		      String[] tmp;
+		      for (String line: data) {
+					 tmp = line.split(" ");
+					 System.out.println();
+					 
+					 if (tmp[4].equals("T")) {
+						 
+					 students.add(new StudentT(tmp[1], tmp[2], Integer.parseInt(tmp[3])));
+					 } else if (tmp[4].equals("H")) {
+						 students.add(new StudentH(tmp[1], tmp[2], Integer.parseInt(tmp[3]), Integer.parseInt(tmp[5]), Integer.parseInt(tmp[6])));
+					 } else if (tmp[4].equals("K")) {
+						 students.add(new StudentK(tmp[1], tmp[2], Integer.parseInt(tmp[3]), Integer.parseInt(tmp[5]), Integer.parseInt(tmp[6])));
+					 }
+					 System.out.println(students.get(Student.ID-1));
+					 for (int i = 7; i < data.size()-1; i++) {
+						 students.get(Student.ID-1).setGrade(Integer.parseInt(tmp[i]));
+						 System.out.println(students.get(Student.ID-1));
+						 
+					 }
+				
+					
+				}
+		    } catch (FileNotFoundException e) {
+		      System.out.println("An error occurred.");
+		      e.printStackTrace();
+		    }
 		
 	}
 	public void exportDatabase(String path) {
 		try {
-		      FileWriter myWriter = new FileWriter(path);
+		      FileWriter myWriter = new FileWriter(path, false);
 		      String messege;
-		      String type;
 		      for (Student s: students) {
 		    	  messege = "";
 		    	  if (s instanceof StudentT) {
