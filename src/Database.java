@@ -83,7 +83,7 @@ public class Database {
 				maxDays = 31;
 				break;
 			case 2:
-				if(StudentT.prestupnyRok(year)) {
+				if(StudentT.leapYear(year)) {
 					System.out.println("Prestupny");
 					maxDays = 29;
 				} else {
@@ -200,5 +200,37 @@ public class Database {
 			System.out.println("Student podle ID nenalezen");
 		}
 		
+	}
+	public void printStudent() {
+		System.out.print("Zadej ID studenta:");
+		int id = Main.onlyInt(sc);
+		Student s = getStudent(id);
+		if (s != null) {
+			System.out.println(s);
+		}
+		else {
+			System.out.println("Student podle ID nenalezen");
+		}
+	}
+	public void activateAbility() {
+		System.out.print("Zadej ID studenta:");
+		int id = Main.onlyInt(sc);
+		Student s = getStudent(id);
+		if (s != null) {
+			if (s instanceof StudentT)
+			{
+				System.out.println("Prestupny rok: " + ((StudentT)s).leapYear());
+			} else if (s instanceof StudentK) {
+				System.out.println("Prestupny rok: " + ((StudentK)s).leapYear());
+				System.out.println("Znameni: " + ((StudentK)s).getZodiacSign());
+			}
+			else if (s instanceof StudentH) {
+				System.out.println("Znameni: " + ((StudentH)s).getZodiacSign());
+			
+			}
+		}
+		else {
+			System.out.println("Student podle ID nenalezen");
+		}
 	}
 }

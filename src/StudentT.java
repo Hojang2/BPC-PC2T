@@ -6,7 +6,7 @@ public class StudentT extends Student{
 		super(fn, ln, br);
 	}
 	
-	public boolean prestupnyRok() {
+	public boolean leapYear() {
 		if (this.birthYear % 100 == 0 && this.birthYear % 400 == 0) {
 			return true;
 		} else if (this.birthYear % 100 != 0 && this.birthYear % 4 == 0) {
@@ -15,7 +15,8 @@ public class StudentT extends Student{
 		return false;
 	}
 	
-	public static boolean prestupnyRok(int year) {
+	
+	public static boolean leapYear(int year) {
 		if (year % 100 == 0 && year % 400 == 0) {
 			return true;
 		} else if (year % 100 != 0 && year % 4 == 0) {

@@ -29,7 +29,7 @@ public class StudentH extends Student {
 			return "Sagittarius";
 		}else if ((this.birthMonth == 12 && this.birthDay >= 22) || (this.birthMonth == 1 && this.birthDay <= 20)) {
 			return "Capricornus";
-		}else if ((this.birthMonth == 4 && this.birthDay >= 21) || (this.birthMonth == 5 && this.birthDay <= 21)) {
+		}else if ((this.birthMonth == 1 && this.birthDay >= 21) || (this.birthMonth == 2 && this.birthDay <= 20)) {
 			return "Aquarius";
 		}else if ((this.birthMonth == 2 && this.birthDay >= 21) || (this.birthMonth == 3 && this.birthDay <= 20)) {
 			return "Pisces";

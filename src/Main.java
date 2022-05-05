@@ -57,8 +57,10 @@ public class Main {
 					db.deleteStudent();
 					break;
 				case 4:
+					db.printStudent();
 					break;
 				case 5:
+					db.activateAbility();
 					break;
 				case 6:
 					break;

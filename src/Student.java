@@ -27,5 +27,15 @@ public abstract class Student {
 		}
 		System.out.println();
 	}
+	public float getAverage() {
+		int sum = 0;
+		for (int grade : this.grades) {
+			sum += grade;
+		}
+		return (float) sum / grades.size();
+	}
+	public String toString() {
+		return String.format("%d %s %s %d %.3f", this.studentID, this.firstName, this.lastName, this.birthYear, getAverage());
+	}
 
 }
