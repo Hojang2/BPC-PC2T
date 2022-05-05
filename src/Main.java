@@ -47,13 +47,13 @@ public class Main {
 			{
 				case 1:
 					db.addStudent();
-					db.printStudents();
+					Database.printStudents(db.students);
 					break;
 				case 2:
 					db.addGrade();
 					break;
 				case 3:
-					db.printStudents();
+					Database.printStudents(db.students);
 					db.deleteStudent();
 					break;
 				case 4:
@@ -63,6 +63,7 @@ public class Main {
 					db.activateAbility();
 					break;
 				case 6:
+					db.sortStudents();
 					break;
 				case 7:
 					break;

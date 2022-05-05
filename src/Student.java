@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public abstract class Student {
+public abstract class Student implements Comparable<Student> {
 	protected String firstName;
 	protected String lastName;
 	protected int birthYear;
@@ -36,6 +36,10 @@ public abstract class Student {
 	}
 	public String toString() {
 		return String.format("%d %s %s %d %.3f", this.studentID, this.firstName, this.lastName, this.birthYear, getAverage());
+	}
+	public int compareTo(Student s) {
+		return this.lastName.compareTo(s.lastName);
+			
 	}
 
 }

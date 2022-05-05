@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Database {
@@ -159,9 +160,9 @@ public class Database {
 	}
 	
 	
-	public void printStudents() {
+	public static void printStudents(ArrayList<Student> students) {
 		for (Student i: students) {
-			System.out.println(String.format("%d %s %s %d", i.studentID, i.firstName, i.lastName, i.birthYear));
+			System.out.println(i);
 		}
 	}
 	
@@ -232,5 +233,30 @@ public class Database {
 		else {
 			System.out.println("Student podle ID nenalezen");
 		}
+	}
+	public void sortStudents() {
+		ArrayList<Student> studentsT = new ArrayList<Student>();
+		ArrayList<Student> studentsH = new ArrayList<Student>();
+		ArrayList<Student> studentsK = new ArrayList<Student>();
+		
+		for (Student s: students) {
+			if (s instanceof StudentT) {
+				studentsT.add((StudentT) s);
+			} else if (s instanceof StudentK) {
+				studentsK.add((StudentK) s);
+			} else if (s instanceof StudentH) {
+				studentsH.add((StudentH) s);
+			}
+		}
+		Collections.sort(studentsT);
+		Collections.sort(studentsH);
+		Collections.sort(studentsK);
+		
+		System.out.println("Studenti technickeho oboru:");
+		Database.printStudents(studentsT);
+		System.out.println("Studenti humanitniho oboru:");
+		Database.printStudents(studentsH);
+		System.out.println("Studenti kombinovaneho studia:");
+		Database.printStudents(studentsK);
 	}
 }
