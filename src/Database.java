@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Database {
 	Scanner sc=new Scanner(System.in);
@@ -306,6 +308,33 @@ public class Database {
 		
 	}
 	public void exportDatabase(String path) {
-		
+		try {
+		      FileWriter myWriter = new FileWriter(path);
+		      String messege;
+		      String type;
+		      for (Student s: students) {
+		    	  messege = "";
+		    	  if (s instanceof StudentT) {
+		    		  	messege = String.format("%d %s %s %d %s %d %d ", s.studentID, s.firstName, s.lastName, s.birthYear, "T", 0, 0);
+					} else if (s instanceof StudentK) {
+						messege = String.format("%d %s %s %d %s %d %d ", s.studentID, s.firstName, s.lastName, s.birthYear, "K", ((StudentK)s).birthMonth, ((StudentK)s).birthDay);
+					} else if (s instanceof StudentH) {
+						messege = String.format("%d %s %s %d %s %d %d ", s.studentID, s.firstName, s.lastName, s.birthYear, "H", ((StudentH)s).birthMonth, ((StudentH)s).birthDay);
+					}
+		    	  for (int grade: s.getGrades()) {
+		    		  messege += (grade + " ");
+		    	  }
+		    	  messege += "\n";
+		    	  myWriter.write(messege);
+		    	  System.out.println(messege);
+		      }
+		     
+		      
+		      myWriter.close();
+		      System.out.println("Uspesne byli zapsani vsichni studenti.");
+		    } catch (IOException e) {
+		      System.out.println("Nastala chyba s ukladanim souboru.");
+		      e.printStackTrace();
+		    }
 	}
 }

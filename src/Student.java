@@ -17,6 +17,9 @@ public abstract class Student implements Comparable<Student> {
 		grades = new ArrayList<Integer>();
 		
 	}
+	public ArrayList<Integer> getGrades(){
+		return grades;
+	}
 	public void setGrade(int grade) {
 		grades.add(grade);
 	}

@@ -72,10 +72,10 @@ public class Main {
 					db.numberOfStudents();
 					break;
 				case 9:
-					db.importDatabase("data.txt");
+					db.exportDatabase("data.txt");
 					break;
 				case 10:
-					db.exportDatabase("data.txt");
+					db.importDatabase("data.txt");
 					break;
 				case 11:
 					break;
